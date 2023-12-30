@@ -9,10 +9,10 @@ export function Header(): React.ReactNode {
       className="bg-white fixed w-full flex justify-between items-center py-3 px-[4%] sm:px-6"
       animate={{ y: 0 }}
       initial={{ y: -100 }}
-      transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
+      transition={{ duration: 0.5, delay: 1, ease: 'easeOut' }}
     >
       <Link href={'/'}>
-        <h1 className="font-black text-xl sm:text-3xl">ryan</h1>
+        <h1 className="font-black text-base sm:text-3xl">ryan</h1>
       </Link>
       <nav className="flex gap-8 items-center">
         <NavItem href="/#about" text="about" />
