@@ -26,7 +26,7 @@ const projects: Project[] = [
     title: 'UD Rio Digital Printing Website',
     description:
       'Website for UD Rio Digital Printing, allowing customer to place orders online with automatic email notification and Admin Panel for website admin to manage products and customer orders.',
-    img: '/img/spotwave.png',
+    img: '/img/udrio.png',
     stacks: ['Go', 'Gin', 'PostgreSQL', 'Redis', 'Docker', 'NextJS', 'Typescript', 'Tailwind CSS'],
     github: 'https://github.com/ryanadiputraa/api-udrio',
   },
@@ -54,7 +54,7 @@ export function Projects({
         <div className="flex flex-col">
           <ProjectItem theme={theme} project={projects[0]} classNames="w-full md:w-1/2 self-center" />
           <div className="mt-20 flex flex-wrap justify-between">
-            <ProjectItem theme={theme} project={projects[1]} classNames="w-full md:w-4/8 w-7/12" />
+            <ProjectItem theme={theme} project={projects[1]} classNames="w-full md:w-7/12" />
             <ProjectItem theme={theme} project={projects[2]} classNames="w-full md:w-4/12" />
           </div>
         </div>
