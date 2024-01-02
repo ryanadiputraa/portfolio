@@ -3,6 +3,8 @@
 import { MutableRefObject } from 'react';
 import { Element } from 'react-scroll';
 
+import { Theme } from '@/types/theme';
+
 interface Experience {
   company: string;
   time: string;
@@ -34,7 +36,7 @@ const experiences: Experience[] = [
   },
 ];
 
-export function About({ aboutRef }: { aboutRef: MutableRefObject<null> }): React.ReactNode {
+export function About({ theme, aboutRef }: { theme: Theme; aboutRef: MutableRefObject<null> }): React.ReactNode {
   return (
     <Element name="about">
       <p
@@ -45,22 +47,24 @@ export function About({ aboutRef }: { aboutRef: MutableRefObject<null> }): React
         world problems and learning new things or technology while doing it.
       </p>
       <h4 className="text-4xl sm:text-7xl text-accent font-medium text-center mb-8">EXPERIENCE</h4>
-      <div>
+      <div className="mb-24">
         {experiences.map((experience) => (
-          <ExperienceItem key={experience.time} experience={experience} />
+          <ExperienceItem theme={theme} key={experience.time} experience={experience} />
         ))}
       </div>
     </Element>
   );
 }
 
-function ExperienceItem({ experience }: { experience: Experience }): React.ReactNode {
+function ExperienceItem({ theme, experience }: { theme: Theme; experience: Experience }): React.ReactNode {
   return (
     <div className="flex flex-col sm:flex-row justify-between gap-4 py-2 sm:px-24">
       <ul className="mt-8">
         <li className="flex gap-4">
           <div className="flex flex-col items-end flex-[2] text-right gap-1">
-            <span className="text-xl sm:text-3xl font-medium">{experience.company}</span>
+            <span className={`${theme === 'light' ? 'text-black' : 'text-white'} text-xl sm:text-3xl font-medium`}>
+              {experience.company}
+            </span>
             <span className="italic text-base sm:text-xl text-light-grey">{experience.time}</span>
           </div>
           <div className="flex flex-col items-center gap-2 pt-3">
@@ -68,7 +72,9 @@ function ExperienceItem({ experience }: { experience: Experience }): React.React
             <div className="flex-grow w-1 rounded-full bg-accent" />
           </div>
           <div className="flex flex-col flex-[5] gap-1">
-            <span className="text-xl sm:text-3xl font-medium">{experience.position}</span>
+            <span className={`${theme === 'light' ? 'text-black' : 'text-white'} text-xl sm:text-3xl font-medium`}>
+              {experience.position}
+            </span>
             <p className="italic text-base sm:text-xl text-light-grey">{experience.description}</p>
           </div>
         </li>

@@ -8,26 +8,35 @@ import { Element } from 'react-scroll';
 import { About } from './components/about';
 import { Header } from './components/header';
 import { Pattern } from './components/pattern';
+import { Projects } from './components/projects';
 import { Theme } from './types/theme';
 
 export default function Home() {
   const [theme, setTheme] = useState<Theme>('light');
   const aboutRef = useRef(null);
-  const { scrollYProgress } = useScroll({
+  const projectsRef = useRef(null);
+
+  const { scrollYProgress: aboutSectionProgress } = useScroll({
     target: aboutRef,
+    offset: ['start end', 'end start'],
+  });
+  const { scrollYProgress: projectsSectionProgress } = useScroll({
+    target: projectsRef,
     offset: ['start end', 'end start'],
   });
 
   const changeTheme = (position: number) => {
     if (theme === 'dark') return;
-    if (position > 0.2 && position < 0.65) {
+    if (position > 0.2 && position < 0.68) {
+      console.log('change dark');
       setTheme('dark');
     } else {
       setTheme('light');
     }
   };
 
-  scrollYProgress.on('change', (latest) => changeTheme(latest));
+  aboutSectionProgress.on('change', (latest) => changeTheme(latest));
+  projectsSectionProgress.on('change', (latest) => changeTheme(latest));
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -68,7 +77,8 @@ export default function Home() {
             />
           </motion.div>
         </Element>
-        <About aboutRef={aboutRef} />
+        <About theme={theme} aboutRef={aboutRef} />
+        <Projects theme={theme} projectsRef={projectsRef} />
       </main>
     </>
   );

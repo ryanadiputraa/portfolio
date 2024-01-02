@@ -10,17 +10,18 @@ export function Header({ theme }: { theme: Theme }): React.ReactNode {
     <motion.header
       className={`${
         theme === 'light' ? 'bg-white' : 'bg-black'
-      } transition-colors duration-500 fixed w-full flex justify-between items-center py-3 px-[4%] sm:px-6 z-20 shadow-sm`}
+      } transition-colors duration-500 fixed w-full flex justify-between items-center py-3 px-[4%] sm:px-6 z-20 shadow-sm ${
+        theme === 'light' ? 'shadow-white-grey' : 'shadow-light-grey'
+      }`}
       animate={{ y: 0 }}
       initial={{ y: -100 }}
       transition={{ duration: 0.5, delay: 1, ease: 'easeOut' }}
     >
-      <Link className="cursor-pointer" to="intro" spy={true} smooth={true} offset={0} duration={500}>
+      <Link className="cursor-pointer" to="intro" spy={true} smooth={true} offset={0} duration={1000}>
         <h1 className={`${theme === 'light' ? 'text-black' : 'text-white'} font-black text-base sm:text-3xl`}>ryan</h1>
       </Link>
       <nav className="flex gap-8 items-center">
         <NavItem theme={theme} href="about" text="about" />
-        <NavItem theme={theme} href="skills" text="skills" />
         <NavItem theme={theme} href="projects" text="projects" />
         <Link className="cursor-pointer" to="contact" spy={true} smooth={true} offset={0} duration={500}>
           <motion.div
@@ -46,7 +47,7 @@ const linkMotion = {
 
 function NavItem({ theme, href, text }: { theme: Theme; href: string; text: string }): React.ReactNode {
   return (
-    <Link className="cursor-pointer" to={href} spy={true} smooth={true} offset={0} duration={500}>
+    <Link className="cursor-pointer" to={href} spy={true} smooth={true} offset={0} duration={1000}>
       <motion.div className="hidden sm:inline-block" initial="initial" whileHover="hover">
         <span className={`${theme === 'light' ? 'text-black' : 'text-white'}`}>{text}</span>
         <motion.div className="h-[0.1rem] rounded-full bg-accent-light" variants={linkMotion} />
