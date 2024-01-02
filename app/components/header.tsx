@@ -17,7 +17,7 @@ export function Header({ theme }: { theme: Theme }): React.ReactNode {
       initial={{ y: -100 }}
       transition={{ duration: 0.5, delay: 1, ease: 'easeOut' }}
     >
-      <Link className="cursor-pointer" to="intro" spy={true} smooth={true} offset={0} duration={1000}>
+      <Link className="cursor-pointer" to="intro" spy={true} smooth={true} offset={-50} duration={1000}>
         <h1 className={`${theme === 'light' ? 'text-black' : 'text-white'} font-black text-base sm:text-3xl`}>ryan</h1>
       </Link>
       <nav className="flex gap-8 items-center">

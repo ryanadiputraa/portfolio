@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { MutableRefObject } from 'react';
 import { Element } from 'react-scroll';
 
@@ -46,7 +47,14 @@ export function About({ theme, aboutRef }: { theme: Theme; aboutRef: MutableRefO
         I&apos;m a Software Engineer based in Palu, Indonesia. I&apos;m passionate about building software to solve real
         world problems and learning new things or technology while doing it.
       </p>
-      <h4 className="text-4xl sm:text-7xl text-accent font-medium text-center mb-8">EXPERIENCE</h4>
+      <motion.h4
+        className="text-4xl sm:text-7xl text-accent font-medium text-center mb-8"
+        initial={{ y: 100, clipPath: 'inset(100% 0 0 0)' }}
+        whileInView={{ y: 0, clipPath: 'inset(0% 0 0 0)' }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+      >
+        EXPERIENCE
+      </motion.h4>
       <div className="mb-24">
         {experiences.map((experience) => (
           <ExperienceItem theme={theme} key={experience.time} experience={experience} />

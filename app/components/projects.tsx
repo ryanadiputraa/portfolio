@@ -27,7 +27,7 @@ const projects: Project[] = [
     description:
       'Website for UD Rio Digital Printing, allowing customer to place orders online with automatic email notification and Admin Panel for website admin to manage products and customer orders.',
     img: '/img/udrio.png',
-    stacks: ['Go', 'Gin', 'PostgreSQL', 'Redis', 'Docker', 'NextJS', 'Typescript', 'Tailwind CSS'],
+    stacks: ['Go', 'Gin', 'PostgreSQL', 'Redis', 'Docker', 'Oauth2', 'NextJS', 'Typescript', 'Tailwind CSS'],
     github: 'https://github.com/ryanadiputraa/api-udrio',
   },
   {
@@ -35,7 +35,17 @@ const projects: Project[] = [
     description:
       'Spotify playlist MP3 downloader using Spotify, Youtube, and MP3 converter API. It fetch user Spotify playlist and searchs it on Youtube, then convert and download the MP3.',
     img: '/img/spotwave.png',
-    stacks: ['Go', 'Fiber', 'ReactJS', 'Typescript', 'Tailwind CSS'],
+    stacks: [
+      'Go',
+      'Fiber',
+      'Spotify API',
+      'Youtube API',
+      'Oauth2',
+      'MP3 Rapid API',
+      'ReactJS',
+      'Typescript',
+      'Tailwind CSS',
+    ],
     github: 'https://github.com/ryanadiputraa/spotwave',
   },
 ];
@@ -50,10 +60,17 @@ export function Projects({
   return (
     <Element name="projects">
       <div ref={projectsRef} className="py-20 md:px-20">
-        <h4 className="text-4xl sm:text-7xl text-accent font-medium text-center mb-8">PROJECTS</h4>
+        <motion.h4
+          className="text-4xl sm:text-7xl text-accent font-medium text-center mb-8"
+          initial={{ y: 100, clipPath: 'inset(100% 0 0 0)' }}
+          whileInView={{ y: 0, clipPath: 'inset(0% 0 0 0)' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
+          PROJECTS
+        </motion.h4>
         <div className="flex flex-col">
           <ProjectItem theme={theme} project={projects[0]} classNames="w-full md:w-1/2 self-center" />
-          <div className="mt-20 flex flex-wrap justify-between">
+          <div className="mt-20 flex flex-wrap justify-between gap-20 md:gap-0">
             <ProjectItem theme={theme} project={projects[1]} classNames="w-full md:w-7/12" />
             <ProjectItem theme={theme} project={projects[2]} classNames="w-full md:w-4/12" />
           </div>
