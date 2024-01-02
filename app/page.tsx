@@ -1,14 +1,26 @@
 'use client';
 
+import Lenis from '@studio-freight/lenis';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
+import { Element } from 'react-scroll';
 
 import { About } from './components/about';
 import { Pattern } from './components/pattern';
 
 export default function Home() {
+  useEffect(() => {
+    const lenis = new Lenis();
+    function raf(time: any) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }, []);
+
   return (
     <>
-      <section className="relative flex justify-center items-center min-h-[92vh]">
+      <Element name="intro" className="relative flex justify-center items-center min-h-[92vh]">
         <div className="flex flex-col gap-[8vh] z-10">
           <Intro />
           <Intro isTransparent />
@@ -29,7 +41,7 @@ export default function Home() {
             transition={{ repeat: Infinity, duration: 1, ease: 'easeInOut' }}
           />
         </motion.div>
-      </section>
+      </Element>
       <About />
     </>
   );

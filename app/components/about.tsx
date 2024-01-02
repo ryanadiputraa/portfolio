@@ -1,5 +1,7 @@
 'use client';
 
+import { Element } from 'react-scroll';
+
 interface Experience {
   company: string;
   time: string;
@@ -33,7 +35,7 @@ const experiences: Experience[] = [
 
 export function About(): React.ReactNode {
   return (
-    <section id="about">
+    <Element name="about">
       <p className="text-accent-light text-3xl sm:text-7xl py-40 sm:py-56 sm:px-24 text-center sm:text-left leading-10">
         I&apos;m a Software Engineer based in Palu, Indonesia. I&apos;m passionate about building software to solve real
         world problems and learning new things or technology while doing it.
@@ -44,7 +46,7 @@ export function About(): React.ReactNode {
           <ExperienceItem key={experience.time} experience={experience} />
         ))}
       </div>
-    </section>
+    </Element>
   );
 }
 
