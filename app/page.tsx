@@ -34,15 +34,17 @@ export default function Home() {
 }
 
 const Intro = ({ isTransparent = false }: { isTransparent?: boolean }): React.ReactNode => (
-  <motion.h4
-    className={`font-black tracking-wider text-3xl sm:text-7xl lg:text-9xl ${
-      isTransparent ? 'text-transparent' : 'text-soft-black'
-    }`}
-    style={isTransparent ? { color: 'transparent', WebkitTextStroke: '0.2rem black' } : {}}
-    initial={{ y: 50, opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }}
-    transition={{ duration: 0.5, delay: 1, ease: 'easeOut' }}
-  >
-    HEY, I&apos;M RYAN
-  </motion.h4>
+  <div className="">
+    <motion.h4
+      className={`font-black tracking-wider text-3xl sm:text-7xl lg:text-9xl ${
+        isTransparent ? 'text-white' : 'text-soft-black'
+      }`}
+      style={isTransparent ? { textShadow: '0 0 0.5rem #0E0E0C' } : {}}
+      initial={{ y: 100, clipPath: 'inset(100% 0 0 0)' }}
+      animate={{ y: 0, clipPath: 'inset(0% 0 0 0)' }}
+      transition={{ duration: 0.5, delay: 1, ease: 'easeOut' }}
+    >
+      HEY, I&apos;M RYAN
+    </motion.h4>
+  </div>
 );
