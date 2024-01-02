@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 export function Header(): React.ReactNode {
   return (
     <motion.header
-      className="bg-white fixed w-full flex justify-between items-center py-3 px-[4%] sm:px-6"
+      className="bg-white fixed w-full flex justify-between items-center py-3 px-[4%] sm:px-6 z-20 shadow-sm"
       animate={{ y: 0 }}
       initial={{ y: -100 }}
       transition={{ duration: 0.5, delay: 1, ease: 'easeOut' }}
@@ -37,11 +37,11 @@ const linkMotion = {
   hover: { width: '100%', transition: { duration: 0.1, ease: 'easeInOut' } },
 };
 
-const NavItem = ({ href, text }: { href: string; text: string }): React.ReactNode => {
+function NavItem({ href, text }: { href: string; text: string }): React.ReactNode {
   return (
     <motion.a href={href} className="hidden sm:inline-block" initial="initial" whileHover="hover">
       <span>{text}</span>
       <motion.div className="h-[0.1rem] rounded-full bg-accent-light" variants={linkMotion} />
     </motion.a>
   );
-};
+}
