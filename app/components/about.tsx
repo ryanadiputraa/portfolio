@@ -1,5 +1,6 @@
 'use client';
 
+import { MutableRefObject } from 'react';
 import { Element } from 'react-scroll';
 
 interface Experience {
@@ -33,10 +34,13 @@ const experiences: Experience[] = [
   },
 ];
 
-export function About(): React.ReactNode {
+export function About({ aboutRef }: { aboutRef: MutableRefObject<null> }): React.ReactNode {
   return (
     <Element name="about">
-      <p className="text-accent-light text-3xl sm:text-7xl py-40 sm:py-56 sm:px-24 text-center sm:text-left leading-10">
+      <p
+        ref={aboutRef}
+        className="text-accent-light text-3xl sm:text-7xl py-40 sm:py-56 sm:px-24 text-center sm:text-left leading-10"
+      >
         I&apos;m a Software Engineer based in Palu, Indonesia. I&apos;m passionate about building software to solve real
         world problems and learning new things or technology while doing it.
       </p>

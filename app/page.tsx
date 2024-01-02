@@ -1,14 +1,34 @@
 'use client';
 
 import Lenis from '@studio-freight/lenis';
-import { motion } from 'framer-motion';
-import { useEffect } from 'react';
+import { motion, useScroll } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import { Element } from 'react-scroll';
 
 import { About } from './components/about';
+import { Header } from './components/header';
 import { Pattern } from './components/pattern';
+import { Theme } from './types/theme';
 
 export default function Home() {
+  const [theme, setTheme] = useState<Theme>('light');
+  const aboutRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: aboutRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const changeTheme = (position: number) => {
+    if (theme === 'dark') return;
+    if (position > 0.2 && position < 0.65) {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  };
+
+  scrollYProgress.on('change', (latest) => changeTheme(latest));
+
   useEffect(() => {
     const lenis = new Lenis();
     function raf(time: any) {
@@ -20,29 +40,36 @@ export default function Home() {
 
   return (
     <>
-      <Element name="intro" className="relative flex justify-center items-center min-h-[92vh]">
-        <div className="flex flex-col gap-[8vh] z-10">
-          <Intro />
-          <Intro isTransparent />
-          <Intro />
-        </div>
-        <Pattern />
-        <motion.div
-          className="absolute bottom-20 -right-12 sm:right-0 rotate-90 text-base sm:text-xl flex justify-start items-center gap-2 w-28"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1, ease: 'easeInOut' }}
-        >
-          <span>scroll</span>
+      <Header theme={theme} />
+      <main
+        className={`pt-16 px-[4%] sm:px-4 text-base ${
+          theme === 'light' ? 'bg-white' : 'bg-black'
+        } transition-colors duration-500`}
+      >
+        <Element name="intro" className="relative flex justify-center items-center min-h-[92vh]">
+          <div className="flex flex-col gap-[8vh] z-10">
+            <Intro />
+            <Intro isTransparent />
+            <Intro />
+          </div>
+          <Pattern />
           <motion.div
-            className="bg-black rounded-full h-1 absolute left-16"
-            initial={{ width: 0 }}
-            animate={{ width: '40%' }}
-            transition={{ repeat: Infinity, duration: 1, ease: 'easeInOut' }}
-          />
-        </motion.div>
-      </Element>
-      <About />
+            className="absolute bottom-20 -right-12 sm:right-0 rotate-90 text-base sm:text-xl flex justify-start items-center gap-2 w-28"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1, ease: 'easeInOut' }}
+          >
+            <span>scroll</span>
+            <motion.div
+              className="bg-black rounded-full h-1 absolute left-16"
+              initial={{ width: 0 }}
+              animate={{ width: '40%' }}
+              transition={{ repeat: Infinity, duration: 1, ease: 'easeInOut' }}
+            />
+          </motion.div>
+        </Element>
+        <About aboutRef={aboutRef} />
+      </main>
     </>
   );
 }
