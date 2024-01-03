@@ -23,7 +23,7 @@ export function Header({ theme }: { theme: Theme }): React.ReactNode {
       <nav className="flex gap-8 items-center">
         <NavItem theme={theme} href="about" text="about" />
         <NavItem theme={theme} href="projects" text="projects" />
-        <Link className="cursor-pointer" to="contact" spy={true} smooth={true} offset={0} duration={500}>
+        <Link className="cursor-pointer" to="contact" spy={true} smooth={true} offset={0} duration={1000}>
           <motion.div
             className={`${
               theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'

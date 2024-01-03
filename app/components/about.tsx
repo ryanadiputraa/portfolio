@@ -39,7 +39,7 @@ const experiences: Experience[] = [
 
 export function About({ theme, aboutRef }: { theme: Theme; aboutRef: MutableRefObject<null> }): React.ReactNode {
   return (
-    <Element name="about">
+    <Element name="about" className="max-w-[96rem] mx-auto">
       <p
         ref={aboutRef}
         className="text-accent-light text-3xl sm:text-7xl py-40 sm:py-56 sm:px-24 text-center sm:text-left leading-10"

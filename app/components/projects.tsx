@@ -59,7 +59,7 @@ export function Projects({
   projectsRef: MutableRefObject<null>;
 }): React.ReactNode {
   return (
-    <Element name="projects">
+    <Element name="projects" className="max-w-[96rem] mx-auto">
       <div ref={projectsRef} className="py-20 md:px-20">
         <SubHeader title="PROJECTS" />
         <div className="flex flex-col">
@@ -118,12 +118,12 @@ function ProjectItem({
       </motion.div>
       <div className="flex flex-wrap gap-2">
         {project.stacks.map((stack) => (
-          <span key={stack} className="text-accent py-1 px-3 border-accent border-2 rounded-full">
+          <span key={stack} className="text-accent py-1 px-3 border-accent border-2 rounded-full font-medium">
             {stack}
           </span>
         ))}
       </div>
-      <h5 className="text-5xl">{project.title}</h5>
+      <h5 className="text-5xl font-semibold">{project.title}</h5>
       <p className="text-xl">{project.description}</p>
     </motion.div>
   );

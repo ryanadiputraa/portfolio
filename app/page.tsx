@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Element } from 'react-scroll';
 
 import { About } from './components/about';
+import { Contact } from './components/contact';
 import { Header } from './components/header';
 import { Pattern } from './components/pattern';
 import { Projects } from './components/projects';
@@ -55,7 +56,7 @@ export default function Home() {
           theme === 'light' ? 'bg-white' : 'bg-black'
         } transition-colors duration-500`}
       >
-        <Element name="intro" className="relative flex justify-center items-center min-h-[92vh]">
+        <Element name="intro" className="flex justify-center items-center min-h-[92vh] max-w-[96rem] mx-auto">
           <div className="flex flex-col gap-[8vh] z-10">
             <Intro />
             <Intro isTransparent />
@@ -79,6 +80,7 @@ export default function Home() {
         </Element>
         <About theme={theme} aboutRef={aboutRef} />
         <Projects theme={theme} projectsRef={projectsRef} />
+        <Contact />
       </main>
     </>
   );
