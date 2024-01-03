@@ -16,7 +16,7 @@ export async function sendMail({ name, email, message }: Form) {
             pass: EMAIL_PASSWORD,
           },
         },
-        { from: email, to: EMAIL }
+        { from: EMAIL, to: EMAIL }
       );
 
       transporter.sendMail(
@@ -37,8 +37,9 @@ export async function sendMail({ name, email, message }: Form) {
   });
 }
 
-const template = ({ name, message }: Form) => `
+const template = ({ name, email, message }: Form) => `
   <h4>Sender: ${name}</h4>
+  <h4>Sender Email: ${email}</h4>
   <br/>
   <div>${message.replace(/\n/g, '<br>')}</div>
 `;

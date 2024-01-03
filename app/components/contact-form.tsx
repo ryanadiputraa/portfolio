@@ -45,7 +45,7 @@ export function ContactForm(): React.ReactNode {
 
     setIsLoading(false);
     setIsError(false);
-    // setIsSuccess(true);
+    setIsSuccess(true);
   };
 
   return (
