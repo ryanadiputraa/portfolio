@@ -5,6 +5,7 @@ import { MutableRefObject } from 'react';
 import { Element } from 'react-scroll';
 
 import { Theme } from '@/types/theme';
+import { SubHeader } from './sub-header';
 
 interface Project {
   title: string;
@@ -60,14 +61,7 @@ export function Projects({
   return (
     <Element name="projects">
       <div ref={projectsRef} className="py-20 md:px-20">
-        <motion.h4
-          className="text-4xl sm:text-7xl text-accent font-medium text-center mb-8"
-          initial={{ y: 100, clipPath: 'inset(100% 0 0 0)' }}
-          whileInView={{ y: 0, clipPath: 'inset(0% 0 0 0)' }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-        >
-          PROJECTS
-        </motion.h4>
+        <SubHeader title="PROJECTS" />
         <div className="flex flex-col">
           <ProjectItem theme={theme} project={projects[0]} classNames="w-full md:w-1/2 self-center" />
           <div className="mt-20 flex flex-wrap justify-between gap-20 md:gap-0">
