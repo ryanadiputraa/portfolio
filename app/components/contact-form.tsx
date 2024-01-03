@@ -3,7 +3,6 @@ import { FormEvent } from 'react';
 export function ContactForm(): React.ReactNode {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('submit');
   };
 
   return (
@@ -42,7 +41,10 @@ export function ContactForm(): React.ReactNode {
         className="w-full resize-none border-b-2 border-accent outline-none"
         style={{ background: 'transparent' }}
       />
-      <button type="submit" className="bg-black font-semibold py-3 px-7 text-white rounded-full mt-8">
+      <button
+        type="submit"
+        className="bg-black font-semibold py-3 px-7 text-white rounded-full mt-8 hover:scale-105 transition-transform"
+      >
         Send Message
       </button>
     </form>

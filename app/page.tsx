@@ -2,8 +2,9 @@
 
 import Lenis from '@studio-freight/lenis';
 import { motion, useScroll } from 'framer-motion';
+import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { Element } from 'react-scroll';
+import { Element, animateScroll } from 'react-scroll';
 
 import { About } from './components/about';
 import { Contact } from './components/contact';
@@ -16,6 +17,7 @@ export default function Home() {
   const [theme, setTheme] = useState<Theme>('light');
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
+  const now = new Date();
 
   const { scrollYProgress: aboutSectionProgress } = useScroll({
     target: aboutRef,
@@ -29,7 +31,6 @@ export default function Home() {
   const changeTheme = (position: number) => {
     if (theme === 'dark') return;
     if (position > 0.2 && position < 0.68) {
-      console.log('change dark');
       setTheme('dark');
     } else {
       setTheme('light');
@@ -82,6 +83,22 @@ export default function Home() {
         <Projects theme={theme} projectsRef={projectsRef} />
         <Contact />
       </main>
+      <footer
+        className={`${
+          theme === 'light' ? 'bg-white' : 'bg-black'
+        } text-lg flex justify-center md:justify-between py-3 px-6`}
+      >
+        <p>
+          © {now.getFullYear()}, <span className="font-black">RYAN ADI PUTRA</span>
+        </p>
+        <span
+          className="font-black cursor-pointer hidden md:flex items-center gap-2"
+          onClick={() => animateScroll.scrollToTop()}
+        >
+          BACK TO TOP
+          <Image src={'/img/arrow.png'} width={20} height={8} alt="arrow" className=" -rotate-90" />
+        </span>
+      </footer>
     </>
   );
 }
