@@ -24,8 +24,8 @@ export function Contact(): React.ReactNode {
           <div>
             <h6 className="text-xl sm:text-3xl font-semibold mb-2">Digital Spaces</h6>
             <div className="flex flex-col gap-1 items-start">
-              <ContactItem ico="/img/github.png" text="Github" link="mailto:ryannadiputraa@gmail.com" />
-              <ContactItem ico="/img/linkedin.png" text="LinkedIn" link="mailto:ryannadiputraa@gmail.com" />
+              <ContactItem ico="/img/github.png" text="Github" link="https://github.com/ryanadiputraa/" />
+              <ContactItem ico="/img/linkedin.png" text="LinkedIn" link="https://www.linkedin.com/in/ryanadiputraa/" />
             </div>
           </div>
           <div>
@@ -59,7 +59,7 @@ function ContactItem({ ico, text, link }: ContactItemProps): React.ReactNode {
     <motion.div className="inline-block" initial="initial" whileHover="hover">
       <div className="flex items-center pb-1">
         {ico && <Image src={ico} width={24} height={18} alt={text} className="mr-2" />}
-        <a href={link} className="text-xl">
+        <a href={link} target="_blank" className="text-xl">
           {text}
         </a>
       </div>
