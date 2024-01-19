@@ -44,8 +44,8 @@ export function About({ theme, aboutRef }: { theme: Theme; aboutRef: MutableRefO
         ref={aboutRef}
         className="text-accent-light text-3xl sm:text-7xl py-40 sm:py-56 sm:px-24 text-center sm:text-left leading-10"
       >
-        I&apos;m a Software Engineer based in Palu, Indonesia. I&apos;m passionate about building software to solve real
-        world problems and learning new things or technology while doing it.
+        I&apos;m a software engineer who enjoys developing software to solve real-world problems and learning new things
+        or technologies while doing it.
       </p>
       <SubHeader title="EXPERIENCE" />
       <div className="mb-24">
