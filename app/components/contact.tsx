@@ -59,7 +59,7 @@ function ContactItem({ ico, text, link }: ContactItemProps): React.ReactNode {
     <motion.div className="inline-block" initial="initial" whileHover="hover">
       <div className="flex items-center pb-1">
         {ico && <Image src={ico} width={24} height={18} alt={text} className="mr-2" />}
-        <a href={link} target="_blank" className="text-xl">
+        <a href={link} target="_blank" className="text-sm sm:text-xl">
           {text}
         </a>
       </div>

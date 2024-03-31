@@ -89,15 +89,15 @@ export default function Home() {
         } text-lg flex justify-center md:justify-between py-3 px-6`}
       >
         <p>
-          © {now.getFullYear()}, <span className="font-black">RYAN ADI PUTRA</span>
+          © {now.getFullYear()}, <span className="font-black">devzy</span>
         </p>
-        <span
+        <button
           className="font-black cursor-pointer hidden md:flex items-center gap-2"
           onClick={() => animateScroll.scrollToTop()}
         >
           BACK TO TOP
           <Image src={'/img/arrow.png'} width={20} height={8} alt="arrow" className=" -rotate-90" />
-        </span>
+        </button>
       </footer>
     </>
   );

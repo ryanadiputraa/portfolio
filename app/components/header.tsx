@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Link } from 'react-scroll';
 
 import { Theme } from '@/types/theme';
@@ -18,7 +19,7 @@ export function Header({ theme }: { theme: Theme }): React.ReactNode {
       transition={{ duration: 0.5, delay: 1, ease: 'easeOut' }}
     >
       <Link className="cursor-pointer" to="intro" spy={true} smooth={true} offset={-50} duration={1000}>
-        <h1 className={`${theme === 'light' ? 'text-black' : 'text-white'} font-black text-base sm:text-3xl`}>ryan</h1>
+        <Image src={theme === 'light' ? '/img/ico.png' : '/img/ico-white.png'} width={80} height={80} alt="devzy" />
       </Link>
       <nav className="flex gap-8 items-center">
         <NavItem theme={theme} href="about" text="about" />
@@ -27,7 +28,7 @@ export function Header({ theme }: { theme: Theme }): React.ReactNode {
           <motion.div
             className={`${
               theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'
-            } py-1 sm:py-2 px-3 sm:px-6 text-sm sm:text-base rounded-full`}
+            } py-1 sm:py-2 px-3 sm:px-6 text-sm sm:text-base rounded-full text-center`}
             whileHover={{
               scale: 1.05,
             }}
