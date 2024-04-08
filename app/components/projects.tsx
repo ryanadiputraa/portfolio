@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { MutableRefObject } from 'react';
 import { Element } from 'react-scroll';
 
@@ -13,6 +14,7 @@ interface Project {
   img: string;
   stacks: string[];
   github: string;
+  live?: string;
 }
 
 const projects: Project[] = [
@@ -33,6 +35,7 @@ const projects: Project[] = [
       'Tailwind CSS',
     ],
     github: 'https://github.com/ryanadiputraa/unclatter',
+    live: 'https://unclatter.devzy.my.id/',
   },
   {
     title: 'ggen',
@@ -58,6 +61,7 @@ const projects: Project[] = [
       'Tailwind CSS',
     ],
     github: 'https://github.com/ryanadiputraa/spotwave',
+    live: 'https://spotwave.devzy.my.id/',
   },
   {
     title: 'Whispr',
@@ -65,6 +69,7 @@ const projects: Project[] = [
     img: '/img/whispr-overview.png',
     stacks: ['NestJS', 'Socket.IO', 'PostgreSQL', 'NextJS', 'Typescript', 'Tailwind CSS'],
     github: 'https://github.com/ryanadiputraa/whispr',
+    live: 'https://whispr.devzy.my.id/',
   },
 ];
 
@@ -96,11 +101,19 @@ export function Projects({
 
 const imgContainerMotion = {
   initial: { borderRadius: 0 },
-  hover: { borderRadius: '2rem', transition: { duration: 0.5, ease: 'easeInOut' } },
+  hover: { borderRadius: '1.2rem', transition: { duration: 0.5, ease: 'easeInOut' } },
+};
+const linkContainerMotion = {
+  initial: { height: 0 },
+  hover: { height: '100%' },
+};
+const linkMotion = {
+  inital: { display: 'none' },
+  hover: { display: 'flex' },
 };
 const imgMotion = {
-  initial: { borderRadius: 0, scale: 1 },
-  hover: { borderRadius: '2rem', scale: 1.2, transition: { duration: 0.5, ease: 'easeInOut' } },
+  initial: { scale: 1 },
+  hover: { scale: 1.2, transition: { duration: 0.5, ease: 'easeInOut' } },
 };
 
 function ProjectItem({
@@ -119,13 +132,38 @@ function ProjectItem({
       whileHover="hover"
     >
       <motion.div
-        className="w-full overflow-hidden mb-4 cursor-pointer"
+        className="w-full overflow-hidden mb-4 relative"
         variants={imgContainerMotion}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
-        onClick={() => {
-          window.open(project.github);
-        }}
       >
+        <motion.div
+          variants={linkContainerMotion}
+          transition={{ duration: 0.2, ease: 'easeInOut' }}
+          className="w-full bg-slate-300/70 backdrop-blur-sm absolute left-0 bottom-0 z-10 flex justify-center items-center gap-16"
+        >
+          <motion.a
+            href={project.github}
+            target="_blank"
+            variants={linkMotion}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
+            className="hidden flex-col items-center gap-2"
+          >
+            <Image src={'/img/github.png'} width={40} height={40} alt="github" className="w-16" />
+            <span className="text-black text-sm font-bold text-center">Code</span>
+          </motion.a>
+          {project.live && (
+            <motion.a
+              href={project.live}
+              target="_blank"
+              variants={linkMotion}
+              transition={{ duration: 0.2, ease: 'easeInOut' }}
+              className="hidden flex-col items-center gap-2"
+            >
+              <Image src={'/img/web.png'} width={40} height={40} alt="github" className="w-16" />
+              <span className="text-black text-sm font-bold text-center">Live</span>
+            </motion.a>
+          )}
+        </motion.div>
         <motion.img
           src={project.img}
           alt={project.title}
