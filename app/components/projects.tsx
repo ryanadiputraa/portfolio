@@ -18,8 +18,7 @@ interface Project {
 const projects: Project[] = [
   {
     title: 'unClatter',
-    description:
-      'A web scrapper and bookmarking content tool, removes distractions allowing users to focus solely on the essential content.',
+    description: 'A web content scrapping and bookmarking tool, allowing users to manage essential content.',
     img: '/img/unclatter-overview.png',
     stacks: [
       'Go',
@@ -45,7 +44,7 @@ const projects: Project[] = [
   {
     title: 'Spotwave',
     description:
-      'Spotify playlist MP3 downloader using Spotify, Youtube, and MP3 converter API. It fetch user Spotify playlist and searchs it on Youtube, then convert and download the MP3.',
+      'Spotify playlist MP3 downloader using Spotify, Youtube, and MP3 converter API. It fetch user Spotify playlist, search song on Youtube, then convert and download the MP3.',
     img: '/img/spotwave-overview.png',
     stacks: [
       'Go',
