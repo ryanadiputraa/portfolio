@@ -89,7 +89,7 @@ export default function Home() {
         } text-lg flex justify-center md:justify-between py-3 px-6`}
       >
         <p>
-          © {now.getFullYear()}, <span className="font-black">devzy</span>
+          © {now.getFullYear()}, <span className="font-black">RYAN ADI PUTRA</span>
         </p>
         <button
           className="font-black cursor-pointer hidden md:flex items-center gap-2"
