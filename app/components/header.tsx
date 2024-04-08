@@ -19,7 +19,7 @@ export function Header({ theme }: { theme: Theme }): React.ReactNode {
       transition={{ duration: 0.5, delay: 1, ease: 'easeOut' }}
     >
       <Link className="cursor-pointer" to="intro" spy={true} smooth={true} offset={-50} duration={1000}>
-        <Image src={theme === 'light' ? '/img/ico.png' : '/img/ico-white.png'} width={80} height={80} alt="devzy" />
+        <Image src={theme === 'light' ? '/img/logo.svg' : '/img/logo-white.svg'} width={40} height={40} alt="logo" />
       </Link>
       <nav className="flex gap-8 items-center">
         <NavItem theme={theme} href="about" text="about" />

@@ -80,7 +80,7 @@ export function Projects({
     <Element name="projects" className="max-w-[96rem] mx-auto">
       <div ref={projectsRef} className="py-20 md:px-20">
         <SubHeader title="PROJECTS" />
-        <div className="mt-20 flex flex-wrap md:gap-x-[5%] gap-y-32">
+        <div className="mt-20 flex justify-center flex-wrap md:gap-x-[5%] gap-y-32">
           {projects.map((project, i) => (
             <ProjectItem
               key={project.title}
