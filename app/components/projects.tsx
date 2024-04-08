@@ -17,37 +17,55 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'ggen CLI',
-    description: 'A CLI for generating go project that use idiomatic go project standard layout.',
-    img: '/img/ggen.png',
-    stacks: ['Go', 'Cobra', 'Bash'],
-    github: 'https://github.com/ryanadiputraa/ggen',
+    title: 'unClatter',
+    description:
+      'A web scrapper and bookmarking content tool, removes distractions allowing users to focus solely on the essential content.',
+    img: '/img/unclatter-overview.png',
+    stacks: [
+      'Go',
+      'Docker',
+      'AWS ECS',
+      'PostgreSQL',
+      'Oauth2',
+      'NextJS',
+      'Colly',
+      'Gorm',
+      'Typescript',
+      'Tailwind CSS',
+    ],
+    github: 'https://github.com/ryanadiputraa/unclatter',
   },
   {
-    title: 'UD Rio Digital Printing Website',
-    description:
-      'Website for UD Rio Digital Printing, allowing customer to place orders online with automatic email notification and Admin Panel for website admin to manage products and customer orders.',
-    img: '/img/udrio.png',
-    stacks: ['Go', 'Gin', 'PostgreSQL', 'Redis', 'Docker', 'Oauth2', 'NextJS', 'Typescript', 'Tailwind CSS'],
-    github: 'https://github.com/ryanadiputraa/api-udrio',
+    title: 'ggen',
+    description: 'A CLI for generating go project that use golang standards project layout.',
+    img: '/img/ggen-overview.png',
+    stacks: ['Go', 'Cobra', 'Bash'],
+    github: 'https://github.com/ryanadiputraa/ggen',
   },
   {
     title: 'Spotwave',
     description:
       'Spotify playlist MP3 downloader using Spotify, Youtube, and MP3 converter API. It fetch user Spotify playlist and searchs it on Youtube, then convert and download the MP3.',
-    img: '/img/spotwave.png',
+    img: '/img/spotwave-overview.png',
     stacks: [
       'Go',
+      'ReactJS',
       'Fiber',
       'Spotify API',
       'Youtube API',
       'Oauth2',
       'MP3 Rapid API',
-      'ReactJS',
       'Typescript',
       'Tailwind CSS',
     ],
     github: 'https://github.com/ryanadiputraa/spotwave',
+  },
+  {
+    title: 'Whispr',
+    description: 'Silent meet application, an anonymous idea-sharing real time app for collaborative brainstorming',
+    img: '/img/whispr-overview.png',
+    stacks: ['NestJS', 'Socket.IO', 'PostgreSQL', 'NextJS', 'Typescript', 'Tailwind CSS'],
+    github: 'https://github.com/ryanadiputraa/whispr',
   },
 ];
 
@@ -62,12 +80,15 @@ export function Projects({
     <Element name="projects" className="max-w-[96rem] mx-auto">
       <div ref={projectsRef} className="py-20 md:px-20">
         <SubHeader title="PROJECTS" />
-        <div className="flex flex-col">
-          <ProjectItem theme={theme} project={projects[0]} classNames="w-full md:w-1/2 self-center" />
-          <div className="mt-20 flex flex-wrap justify-between gap-20 md:gap-0">
-            <ProjectItem theme={theme} project={projects[1]} classNames="w-full md:w-7/12" />
-            <ProjectItem theme={theme} project={projects[2]} classNames="w-full md:w-4/12" />
-          </div>
+        <div className="mt-20 flex flex-wrap md:gap-x-[5%] gap-y-32">
+          {projects.map((project, i) => (
+            <ProjectItem
+              key={project.title}
+              project={project}
+              theme={theme}
+              classNames={`w-full ${i === 0 || i === 3 ? 'md:w-[55%]' : 'md:w-[40%]'}`}
+            />
+          ))}
         </div>
       </div>
     </Element>
