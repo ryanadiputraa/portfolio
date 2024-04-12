@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { MutableRefObject } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { Element } from 'react-scroll';
 
 import { Theme } from '@/types/theme';
@@ -80,6 +81,8 @@ export function Projects({
   theme: Theme;
   projectsRef: MutableRefObject<null>;
 }): React.ReactNode {
+  const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
+
   return (
     <Element name="projects" className="max-w-[96rem] mx-auto">
       <div ref={projectsRef} className="py-20 md:px-20">
@@ -90,6 +93,7 @@ export function Projects({
               key={project.title}
               project={project}
               theme={theme}
+              isDesktop={isDesktop}
               classNames={`w-full ${i === 0 || i === 3 ? 'md:w-[55%]' : 'md:w-[40%]'}`}
             />
           ))}
@@ -119,10 +123,12 @@ const imgMotion = {
 function ProjectItem({
   theme,
   project,
+  isDesktop = true,
   classNames,
 }: {
   theme: Theme;
   project: Project;
+  isDesktop?: boolean;
   classNames?: string;
 }): React.ReactNode {
   return (
@@ -133,18 +139,18 @@ function ProjectItem({
     >
       <motion.div
         className="w-full overflow-hidden mb-4 relative"
-        variants={imgContainerMotion}
+        variants={isDesktop ? imgContainerMotion : {}}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
       >
         <motion.div
-          variants={linkContainerMotion}
+          variants={isDesktop ? linkContainerMotion : {}}
           transition={{ duration: 0.2, ease: 'easeInOut' }}
           className="w-full bg-slate-300/70 backdrop-blur-sm absolute left-0 bottom-0 z-10 flex justify-center items-center gap-16"
         >
           <motion.a
             href={project.github}
             target="_blank"
-            variants={linkMotion}
+            variants={isDesktop ? linkMotion : {}}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
             className="hidden flex-col items-center gap-2"
           >
@@ -155,11 +161,11 @@ function ProjectItem({
             <motion.a
               href={project.live}
               target="_blank"
-              variants={linkMotion}
+              variants={isDesktop ? linkMotion : {}}
               transition={{ duration: 0.2, ease: 'easeInOut' }}
               className="hidden flex-col items-center gap-2"
             >
-              <Image src={'/img/web.png'} width={40} height={40} alt="github" className="w-16" />
+              <Image src={'/img/web.png'} width={40} height={40} alt="web" className="w-16" />
               <span className="text-black text-sm font-bold text-center">Live</span>
             </motion.a>
           )}
@@ -170,7 +176,7 @@ function ProjectItem({
           width={400}
           height={160}
           className="w-full"
-          variants={imgMotion}
+          variants={isDesktop ? imgMotion : {}}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
         />
       </motion.div>
@@ -183,6 +189,32 @@ function ProjectItem({
       </div>
       <h5 className="text-5xl font-semibold">{project.title}</h5>
       <p className="text-xl">{project.description}</p>
+      {!isDesktop && (
+        <div className="mt-4 flex gap-4">
+          <a href={project.github} target="_blank" className="flex flex-col items-center gap-1">
+            <Image
+              src={theme === 'light' ? '/img/github.png' : '/img/github-white.png'}
+              width={20}
+              height={20}
+              alt="github"
+              className="w-8"
+            />
+            <span className="italic text-sm">Code</span>
+          </a>
+          {project.live && (
+            <a href={project.github} target="_blank" className="flex flex-col items-center gap-1">
+              <Image
+                src={theme === 'light' ? '/img/web.png' : '/img/web-white.png'}
+                width={20}
+                height={20}
+                alt="web"
+                className="w-8"
+              />
+              <span className="italic text-sm">Live</span>
+            </a>
+          )}
+        </div>
+      )}
     </motion.div>
   );
 }

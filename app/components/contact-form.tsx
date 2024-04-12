@@ -48,8 +48,10 @@ export function ContactForm(): React.ReactNode {
     setIsSuccess(true);
   };
 
+  const submitBtnText = isSuccess ? 'Email Sent' : 'Send Message';
+
   return (
-    <form onSubmit={onSubmit} className="w-full max-w-3xl text-xl">
+    <form onSubmit={onSubmit} className="w-full max-w-3xl text-xl flex flex-col">
       <div className="flex flex-col sm:flex-row gap-8 mb-8">
         <div className="flex-1">
           <label htmlFor="name" className="block mb-2 text-xl font-medium text-accent">
@@ -95,12 +97,12 @@ export function ContactForm(): React.ReactNode {
       <motion.button
         type="submit"
         disabled={isSuccess}
-        className="bg-black font-semibold py-3 px-7 text-white rounded-full mt-8 w-56"
+        className="bg-black font-semibold py-3 px-7 text-white rounded-full mt-3 sm:mt-8 w-56 self-end sm:self-start"
         initial={{ scale: 1 }}
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
       >
-        {isLoading ? <Spinner /> : isSuccess ? 'Email Sent' : 'Send Message'}
+        {isLoading ? <Spinner /> : submitBtnText}
       </motion.button>
     </form>
   );

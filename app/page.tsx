@@ -65,7 +65,7 @@ export default function Home() {
           </div>
           <Pattern />
           <motion.div
-            className="absolute bottom-20 -right-12 sm:right-0 rotate-90 text-base sm:text-xl flex justify-start items-center gap-2 w-28"
+            className="absolute bottom-20 -right-8 sm:right-0 rotate-90 text-base sm:text-xl flex justify-start items-center gap-2 w-28"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1, ease: 'easeInOut' }}
