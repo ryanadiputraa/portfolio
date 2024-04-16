@@ -154,7 +154,7 @@ function ProjectItem({
             transition={{ duration: 0.2, ease: 'easeInOut' }}
             className="hidden flex-col items-center gap-2"
           >
-            <Image src={'/img/github.png'} width={40} height={40} alt="github" className="w-16" />
+            <Image src={'/img/github.png'} width={30} height={30} alt="github" className="w-16" />
             <span className="text-black text-sm font-bold text-center">Code</span>
           </motion.a>
           {project.live && (
@@ -165,7 +165,7 @@ function ProjectItem({
               transition={{ duration: 0.2, ease: 'easeInOut' }}
               className="hidden flex-col items-center gap-2"
             >
-              <Image src={'/img/web.png'} width={40} height={40} alt="web" className="w-16" />
+              <Image src={'/img/web.png'} width={30} height={30} alt="web" className="w-16" />
               <span className="text-black text-sm font-bold text-center">Live</span>
             </motion.a>
           )}
