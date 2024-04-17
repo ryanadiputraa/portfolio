@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 
+export type Theme = 'light' | 'dark';
+
 export default function useTheme() {
   useEffect(() => {
     if (
@@ -26,5 +28,14 @@ export function toggleTheme() {
   } else {
     localStorage.theme = 'dark';
     document.documentElement.classList.add('dark');
+  }
+}
+
+export function setTheme(theme: Theme, presist = false) {
+  if (presist) localStorage.theme = theme;
+  if (theme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
   }
 }

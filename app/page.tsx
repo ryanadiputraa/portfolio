@@ -3,7 +3,7 @@
 import Lenis from '@studio-freight/lenis';
 import { motion, useScroll } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Element, animateScroll } from 'react-scroll';
 
 import { About } from './components/about';
@@ -11,10 +11,9 @@ import { Contact } from './components/contact';
 import { Header } from './components/header';
 import { Pattern } from './components/pattern';
 import { Projects } from './components/projects';
-import { Theme } from './types/theme';
+import { setTheme } from './hooks/useTheme';
 
 export default function Home() {
-  const [theme, setTheme] = useState<Theme>('light');
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
   const now = new Date();
@@ -29,7 +28,6 @@ export default function Home() {
   });
 
   const changeTheme = (position: number) => {
-    if (theme === 'dark') return;
     if (position > 0.2 && position < 0.68) {
       setTheme('dark');
     } else {
@@ -51,12 +49,8 @@ export default function Home() {
 
   return (
     <>
-      <Header theme={theme} />
-      <main
-        className={`pt-16 px-[4%] sm:px-4 text-base ${
-          theme === 'light' ? 'bg-white' : 'bg-black'
-        } transition-colors duration-500`}
-      >
+      <Header />
+      <main className="pt-16 px-[4%] sm:px-4 text-base bg-white dark:bg-black transition-colors duration-500">
         <Element name="intro" className="flex justify-center items-center min-h-[92vh] max-w-[96rem] mx-auto">
           <div className="flex flex-col gap-[8vh] z-10">
             <Intro />
@@ -79,15 +73,11 @@ export default function Home() {
             />
           </motion.div>
         </Element>
-        <About theme={theme} aboutRef={aboutRef} />
-        <Projects theme={theme} projectsRef={projectsRef} />
+        <About aboutRef={aboutRef} />
+        <Projects projectsRef={projectsRef} />
         <Contact />
       </main>
-      <footer
-        className={`${
-          theme === 'light' ? 'bg-white' : 'bg-black'
-        } text-lg flex justify-center md:justify-between py-3 px-6`}
-      >
+      <footer className="bg-white dark:bg-black text-lg flex justify-center md:justify-between py-3 px-6">
         <p>
           © {now.getFullYear()}, <span className="font-black">RYAN ADI PUTRA</span>
         </p>

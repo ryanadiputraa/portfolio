@@ -6,7 +6,6 @@ import { MutableRefObject } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Element } from 'react-scroll';
 
-import { Theme } from '@/types/theme';
 import { SubHeader } from './sub-header';
 
 interface Project {
@@ -74,13 +73,7 @@ const projects: Project[] = [
   },
 ];
 
-export function Projects({
-  theme,
-  projectsRef,
-}: {
-  theme: Theme;
-  projectsRef: MutableRefObject<null>;
-}): React.ReactNode {
+export function Projects({ projectsRef }: { projectsRef: MutableRefObject<null> }): React.ReactNode {
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
 
   return (
@@ -92,7 +85,6 @@ export function Projects({
             <ProjectItem
               key={project.title}
               project={project}
-              theme={theme}
               isDesktop={isDesktop}
               classNames={`w-full ${i === 0 || i === 3 ? 'md:w-[55%]' : 'md:w-[40%]'}`}
             />
@@ -121,22 +113,16 @@ const imgMotion = {
 };
 
 function ProjectItem({
-  theme,
   project,
   isDesktop = true,
   classNames,
 }: {
-  theme: Theme;
   project: Project;
   isDesktop?: boolean;
   classNames?: string;
 }): React.ReactNode {
   return (
-    <motion.div
-      className={`${classNames} ${theme === 'light' ? 'text-black' : 'text-white'} flex flex-col gap-2`}
-      initial="initial"
-      whileHover="hover"
-    >
+    <motion.div className={`${classNames} flex flex-col gap-2`} initial="initial" whileHover="hover">
       <motion.div
         className="w-full overflow-hidden mb-4 relative"
         variants={isDesktop ? imgContainerMotion : {}}
@@ -193,22 +179,22 @@ function ProjectItem({
         <div className="mt-4 flex gap-4">
           <a href={project.github} target="_blank" className="flex flex-col items-center gap-1">
             <Image
-              src={theme === 'light' ? '/assets/img/github.png' : '/assets/img/github-white.png'}
+              src={'/assets/img/github.png'}
               width={20}
               height={20}
               alt="github"
-              className="w-8"
+              className="w-8 invert-0 dark:invert"
             />
             <span className="italic text-sm">Code</span>
           </a>
           {project.live && (
             <a href={project.github} target="_blank" className="flex flex-col items-center gap-1">
               <Image
-                src={theme === 'light' ? '/assets/img/web.png' : '/assets/img/web-white.png'}
+                src={'/assets/img/web.png'}
                 width={20}
                 height={20}
                 alt="web"
-                className="w-8"
+                className="w-8 invert-0 dark:invert"
               />
               <span className="italic text-sm">Live</span>
             </a>
