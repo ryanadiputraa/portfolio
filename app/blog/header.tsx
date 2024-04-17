@@ -2,31 +2,11 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect } from 'react';
+
+import useTheme, { toggleTheme } from '@/hooks/useTheme';
 
 export function Header() {
-  const toggleTheme = () => {
-    if (localStorage.theme === 'dark') {
-      localStorage.theme = 'light';
-      document.documentElement.classList.remove('dark');
-    } else {
-      localStorage.theme = 'dark';
-      document.documentElement.classList.add('dark');
-    }
-  };
-
-  useEffect(() => {
-    if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-
-    return () => document.documentElement.classList.remove('dark'); // reset theme for main page dynamic theme
-  }, []);
+  useTheme();
 
   return (
     <header className=" bg-white dark:bg-black shadow-white-grey dark:shadow-light-grey fixed w-full flex justify-between items-center py-3 px-[4%] sm:px-6 z-20 shadow-sm">
