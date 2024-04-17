@@ -24,7 +24,7 @@ export function Pattern(): React.ReactNode {
 
   return (
     <motion.img
-      src={'/img/pattern.jpg'}
+      src={'/assets/img/pattern.jpg'}
       alt="pattern"
       width={200}
       height={120}

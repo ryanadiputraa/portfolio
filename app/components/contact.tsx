@@ -19,20 +19,28 @@ export function Contact(): React.ReactNode {
         <div className="flex-[3] flex flex-col items-start gap-12">
           <div>
             <h6 className="text-xl sm:text-3xl font-bold mb-2">Contact Details</h6>
-            <ContactItem ico="/img/email.png" text="ryannadiputraa@gmail.com" link="mailto:ryannadiputraa@gmail.com" />
+            <ContactItem
+              ico="/assets/img/email.png"
+              text="ryannadiputraa@gmail.com"
+              link="mailto:ryannadiputraa@gmail.com"
+            />
           </div>
           <div>
             <h6 className="text-xl sm:text-3xl font-semibold mb-2">Digital Spaces</h6>
             <div className="flex flex-col gap-1 items-start">
-              <ContactItem ico="/img/github.png" text="Github" link="https://github.com/ryanadiputraa/" />
-              <ContactItem ico="/img/linkedin.png" text="LinkedIn" link="https://www.linkedin.com/in/ryanadiputraa/" />
+              <ContactItem ico="/assets/img/github.png" text="Github" link="https://github.com/ryanadiputraa/" />
+              <ContactItem
+                ico="/assets/img/linkedin.png"
+                text="LinkedIn"
+                link="https://www.linkedin.com/in/ryanadiputraa/"
+              />
             </div>
           </div>
           <div>
             <h6 className="text-xl sm:text-3xl font-bold mb-2">Location</h6>
             <div className="flex flex-col gap-1 items-start">
               <div className="flex items-center gap-2 pb-1">
-                <Image src={'/img/location.png'} width={24} height={18} alt="location" />
+                <Image src={'/assets/img/location.png'} width={24} height={18} alt="location" />
                 <span>Palu, Indonesia</span>
               </div>
             </div>

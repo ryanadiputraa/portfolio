@@ -96,7 +96,7 @@ export default function Home() {
           onClick={() => animateScroll.scrollToTop()}
         >
           BACK TO TOP
-          <Image src={'/img/arrow.png'} width={20} height={8} alt="arrow" className=" -rotate-90" />
+          <Image src={'/assets/img/arrow.png'} width={20} height={8} alt="arrow" className=" -rotate-90" />
         </button>
       </footer>
     </>

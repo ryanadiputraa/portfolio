@@ -22,7 +22,7 @@ const projects: Project[] = [
   {
     title: 'unClatter',
     description: 'A web content scrapping and bookmarking tool, allowing users to manage essential content.',
-    img: '/img/unclatter-overview.png',
+    img: '/assets/img/unclatter-overview.png',
     stacks: [
       'Go',
       'Docker',
@@ -41,7 +41,7 @@ const projects: Project[] = [
   {
     title: 'ggen',
     description: 'A CLI for generating go project that use golang standards project layout.',
-    img: '/img/ggen-overview.png',
+    img: '/assets/img/ggen-overview.png',
     stacks: ['Go', 'Cobra', 'Bash'],
     github: 'https://github.com/ryanadiputraa/ggen',
   },
@@ -49,7 +49,7 @@ const projects: Project[] = [
     title: 'Spotwave',
     description:
       'Spotify playlist MP3 downloader using Spotify, Youtube, and MP3 converter API. It fetch user Spotify playlist, search song on Youtube, then convert and download the MP3.',
-    img: '/img/spotwave-overview.png',
+    img: '/assets/img/spotwave-overview.png',
     stacks: [
       'Go',
       'ReactJS',
@@ -67,7 +67,7 @@ const projects: Project[] = [
   {
     title: 'Whispr',
     description: 'Silent meet application, an anonymous idea-sharing real time app for collaborative brainstorming',
-    img: '/img/whispr-overview.png',
+    img: '/assets/img/whispr-overview.png',
     stacks: ['NestJS', 'Socket.IO', 'PostgreSQL', 'NextJS', 'Typescript', 'Tailwind CSS'],
     github: 'https://github.com/ryanadiputraa/whispr',
     live: 'https://whispr.devzy.my.id/',
@@ -154,7 +154,7 @@ function ProjectItem({
             transition={{ duration: 0.2, ease: 'easeInOut' }}
             className="hidden flex-col items-center gap-2"
           >
-            <Image src={'/img/github.png'} width={30} height={30} alt="github" className="w-16" />
+            <Image src={'/assets/img/github.png'} width={30} height={30} alt="github" className="w-16" />
             <span className="text-black text-sm font-bold text-center">Code</span>
           </motion.a>
           {project.live && (
@@ -165,7 +165,7 @@ function ProjectItem({
               transition={{ duration: 0.2, ease: 'easeInOut' }}
               className="hidden flex-col items-center gap-2"
             >
-              <Image src={'/img/web.png'} width={30} height={30} alt="web" className="w-16" />
+              <Image src={'/assets/img/web.png'} width={30} height={30} alt="web" className="w-16" />
               <span className="text-black text-sm font-bold text-center">Live</span>
             </motion.a>
           )}
@@ -193,7 +193,7 @@ function ProjectItem({
         <div className="mt-4 flex gap-4">
           <a href={project.github} target="_blank" className="flex flex-col items-center gap-1">
             <Image
-              src={theme === 'light' ? '/img/github.png' : '/img/github-white.png'}
+              src={theme === 'light' ? '/assets/img/github.png' : '/assets/img/github-white.png'}
               width={20}
               height={20}
               alt="github"
@@ -204,7 +204,7 @@ function ProjectItem({
           {project.live && (
             <a href={project.github} target="_blank" className="flex flex-col items-center gap-1">
               <Image
-                src={theme === 'light' ? '/img/web.png' : '/img/web-white.png'}
+                src={theme === 'light' ? '/assets/img/web.png' : '/assets/img/web-white.png'}
                 width={20}
                 height={20}
                 alt="web"

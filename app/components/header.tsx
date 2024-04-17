@@ -25,7 +25,12 @@ export function Header({ theme }: { theme: Theme }): React.ReactNode {
       transition={{ duration: 0.5, delay: 1, ease: 'easeOut' }}
     >
       <ReactScrollLink className="cursor-pointer" to="intro" spy={true} smooth={true} offset={-50} duration={1000}>
-        <Image src={theme === 'light' ? '/img/logo.svg' : '/img/logo-white.svg'} width={40} height={40} alt="logo" />
+        <Image
+          src={theme === 'light' ? '/assets/svg/logo.svg' : '/assets/svg/logo-white.svg'}
+          width={40}
+          height={40}
+          alt="logo"
+        />
       </ReactScrollLink>
       <nav className="flex gap-4 sm:gap-8 items-center">
         <Link className="cursor-pointer" href={'/blog'}>
