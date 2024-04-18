@@ -188,7 +188,7 @@ function ProjectItem({
             <span className="italic text-sm">Code</span>
           </a>
           {project.live && (
-            <a href={project.github} target="_blank" className="flex flex-col items-center gap-1">
+            <a href={project.live} target="_blank" className="flex flex-col items-center gap-1">
               <Image
                 src={'/assets/img/web.png'}
                 width={20}
