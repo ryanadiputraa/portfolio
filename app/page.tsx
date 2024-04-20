@@ -2,6 +2,7 @@
 
 import Lenis from '@studio-freight/lenis';
 import { motion, useScroll } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { Element, animateScroll } from 'react-scroll';
@@ -9,9 +10,10 @@ import { Element, animateScroll } from 'react-scroll';
 import { About } from './components/about';
 import { Contact } from './components/contact';
 import { Header } from './components/header';
-import { Pattern } from './components/pattern';
 import { Projects } from './components/projects';
 import { setTheme } from './hooks/useTheme';
+
+const Pattern = dynamic(() => import('./components/pattern').then((mod) => mod.Pattern), { ssr: false });
 
 export default function Home() {
   const aboutRef = useRef(null);

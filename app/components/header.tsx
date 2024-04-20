@@ -24,7 +24,7 @@ export function Header(): React.ReactNode {
       <nav className="flex gap-4 sm:gap-8 items-center">
         <Link className="cursor-pointer" href={'/blog'}>
           <motion.div initial="initial" whileHover="hover">
-            <span className="text-xs sm:text-base">Blog</span>
+            <span className="text-xs sm:text-base">blog</span>
             <motion.div className="h-[0.1rem] rounded-full bg-accent-light" variants={linkMotion} />
           </motion.div>
         </Link>
