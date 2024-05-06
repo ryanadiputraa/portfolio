@@ -13,7 +13,10 @@ export default function Blog() {
         <div key={blog.title} className="flex items-center justify-between">
           <div>
             <span className="mr-4">{'>>'}</span>
-            <Link href={'/'} className="text-lg font-semibold border-b-2 border-b-transparent hover:border-b-accent">
+            <Link
+              href={'/'}
+              className="text-lg font-semibold border-b-2 border-b-transparent hover:border-b-accent-light hover:dark:border-b-accent"
+            >
               {blog.title}
             </Link>
           </div>
