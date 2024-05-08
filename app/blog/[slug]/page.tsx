@@ -4,6 +4,13 @@ import { blogs } from '../blogs';
 
 export default function Content({ params }: { params: { slug: string } }) {
   const content = blogs[params.slug];
+  if (!content) {
+    return (
+      <div className="h-[70vh] grid place-items-center">
+        <span className="font-medium text-xl">Article Not Found {':('}</span>
+      </div>
+    );
+  }
 
   return (
     <article>

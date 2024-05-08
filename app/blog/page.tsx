@@ -5,7 +5,11 @@ import { blogs } from './blogs';
 
 export default function Blog() {
   if (!Object.keys(blogs).length) {
-    return <div className="grid place-items-center">No post yet.</div>;
+    return (
+      <div className="h-[70vh] grid place-items-center">
+        <span className="font-medium text-xl">No Post Yet {':('}</span>
+      </div>
+    );
   }
   return (
     <div className="flex flex-col gap-4">
