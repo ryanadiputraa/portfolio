@@ -7,10 +7,11 @@ export default function Content({ params }: { params: { slug: string } }) {
 
   return (
     <article>
-      <div className="flex flex-col justify-center gap-2 border-b-2 border-accent-light dark:border-accent py-4">
+      <div className="flex flex-col justify-center gap-2 border-b-2 border-accent-light dark:border-accent py-4 mb-8">
         <h1 className="text-2xl sm:text-4xl font-bold text-center">{content.title}</h1>
-        <span className="italic text-center">{format(content.createdAt, 'MMM do, yyyy')}</span>
+        <time className="italic text-center">{format(content.createdAt, 'MMM do, yyyy')}</time>
       </div>
+      <div className="flex flex-col gap-8 leading-8 text-lg font-medium">{content.content}</div>
     </article>
   );
 }
