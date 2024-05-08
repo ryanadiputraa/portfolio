@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { Header } from './header';
+
+import { Header } from './components/header';
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
   const now = new Date();

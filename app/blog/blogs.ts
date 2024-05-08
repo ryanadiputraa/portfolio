@@ -3,4 +3,4 @@ export interface Blog {
   createdAt: Date;
 }
 
-export const blogs: Blog[] = [];
+export const blogs: { [slug: string]: Blog } = {};
