@@ -18,7 +18,7 @@ export default function Content({ params }: { params: { slug: string } }) {
         <h1 className="text-2xl sm:text-4xl font-bold text-center">{content.title}</h1>
         <time className="italic text-center">{format(content.createdAt, 'MMM do, yyyy')}</time>
       </div>
-      <div className="flex flex-col gap-8 leading-8 text-lg font-medium">{content.content}</div>
+      <div className="flex flex-col gap-8 leading-8 text-base sm:text-lg font-medium">{content.content}</div>
     </article>
   );
 }
