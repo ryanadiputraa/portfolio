@@ -39,7 +39,8 @@ const projects: Project[] = [
   },
   {
     title: 'ggen',
-    description: 'A CLI for generating go project that use golang standards project layout.',
+    description:
+      'A CLI for generating go project, it helps automate the process of creating a new Go project with a predefined directory structure, configuration files, and third party library/package.',
     img: '/assets/img/ggen-overview.png',
     stacks: ['Go', 'Cobra', 'Bash'],
     github: 'https://github.com/ryanadiputraa/ggen',
