@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Header } from './components/header';
 
@@ -30,9 +31,9 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
             />
           </a>
         </div>
-        <p>
+        <Link href={'/'}>
           © {now.getFullYear()}, <span className="font-black">RYAN ADI PUTRA</span>
-        </p>
+        </Link>
       </footer>
     </>
   );
